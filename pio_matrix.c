@@ -6,6 +6,14 @@
 #include "hardware/clocks.h"
 #include "hardware/adc.h"
 #include "pico/bootrom.h"
+#include "hardware/i2c.h"
+#include "inc/ssd1306.h"
+#include "inc/font.h"
+#define I2C_PORT i2c1
+#define I2C_SDA 14
+#define I2C_SCL 15
+#define endereco 0x3C
+
 
 // arquivo .pio
 #include "pio_matrix.pio.h"
@@ -19,7 +27,10 @@
 #define LED_B 12 // pino led azul 
 #define button_A 5 // pino do botão A
 #define button_B 6 // pino do botão B
-
+#define I2C_PORT i2c1
+#define I2C_SDA 14
+#define I2C_SCL 15
+#define endereco 0x3C
 
 //Variavél global
 static volatile uint cont = 0;
@@ -29,6 +40,7 @@ uint volatile sm_global = 0;
 bool volatile green_on = false; 
 bool volatile blue_on = false; 
 
+ssd1306_t ssd; // Inicializa a estrutura do display
 
 // FUNÇÕES DOS NÚMEROS
 extern void numeros(PIO pio, uint sm, uint cont);
@@ -57,9 +69,14 @@ void gpio_irq_handler(uint gpio, uint32_t events)
     if (gpio == button_A && (current_time - last_time > 200000)) {
         last_time = current_time;
         if(green_on){
+            char a = 'a';
             printf("O led verde foi desligado\n");
             green_on = false;
-            gpio_put(LED_G, green_on);
+            gpio_put(LED_G, green_on); 
+            ssd1306_fill(&ssd, false); // Limpa o display 
+            ssd1306_draw_char(&ssd,a, 8, 10);
+            ssd1306_send_data(&ssd);
+
         }else{
             printf("O led verde foi ligado\n");
             green_on = true;
@@ -100,7 +117,25 @@ int main()
     gpio_set_dir(button_B, GPIO_IN); 
     gpio_pull_up(button_B);
 
+
+    // I2C Initialisation. Using it at 400Khz.
+    i2c_init(I2C_PORT, 400 * 1000);
+
+    gpio_set_function(I2C_SDA, GPIO_FUNC_I2C); // Set the GPIO pin function to I2C
+    gpio_set_function(I2C_SCL, GPIO_FUNC_I2C); // Set the GPIO pin function to I2C
+    gpio_pull_up(I2C_SDA); // Pull up the data line
+    gpio_pull_up(I2C_SCL); // Pull up the clock line
+    ssd1306_init(&ssd, WIDTH, HEIGHT, false, endereco, I2C_PORT); // Inicializa o display
+    ssd1306_config(&ssd); // Configura o display
+    ssd1306_send_data(&ssd); // Envia os dados para o display
+
+    // Limpa o display. O display inicia com todos os pixels apagados.
+    ssd1306_fill(&ssd, false);
+    ssd1306_send_data(&ssd);
+
+    bool cor = true;
     stdio_init_all();
+
 
     // configurações da PIO
     uint offset = pio_add_program(pio, &pio_matrix_program);

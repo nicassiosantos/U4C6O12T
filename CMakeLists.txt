@@ -35,7 +35,7 @@ pico_sdk_init()
 
 
 # Adiconar bibliotecas aqui!!!!
-add_executable(pio_matrix pio_matrix.c animations.c)
+add_executable(pio_matrix pio_matrix.c animations.c inc/ssd1306.c)
 
 
 pico_set_program_name(pio_matrix "pio_matrix")
@@ -54,7 +54,9 @@ target_link_libraries(pio_matrix PRIVATE
         pico_stdlib
         hardware_pio
 	    hardware_adc
-        pico_bootrom)
+        pico_bootrom
+        hardware_i2c
+        )
 
 # Add the standard include files to the build
 target_include_directories(pio_matrix PRIVATE
