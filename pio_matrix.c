@@ -72,15 +72,18 @@ void gpio_irq_handler(uint gpio, uint32_t events)
             printf("O led verde foi desligado\n");
             green_on = false;
             gpio_put(LED_G, green_on); 
+            ssd1306_fill(&ssd, false); // Limpa o display 
+            ssd1306_draw_string(&ssd, "O led verde", 20, 20);
+            ssd1306_draw_string(&ssd, "foi desligado", 20, 29);
+            ssd1306_send_data(&ssd);
 
         }else{
             printf("O led verde foi ligado\n");
             green_on = true;
             gpio_put(LED_G, green_on);
             ssd1306_fill(&ssd, false); // Limpa o display 
-            ssd1306_draw_char(&ssd,'x', 8, 10);
-            ssd1306_draw_char(&ssd,'y', 16, 10);
-            ssd1306_draw_char(&ssd,'z', 24, 10);
+            ssd1306_draw_string(&ssd, "O led verde", 20, 20);
+            ssd1306_draw_string(&ssd, "foi ligado", 20, 29);
             ssd1306_send_data(&ssd);
         }
     }else if (gpio == button_B && (current_time - last_time > 200000)) {
@@ -90,10 +93,18 @@ void gpio_irq_handler(uint gpio, uint32_t events)
             printf("O led azul foi desligado\n");
             blue_on = false;
             gpio_put(LED_B, blue_on);
+            ssd1306_fill(&ssd, false); // Limpa o display 
+            ssd1306_draw_string(&ssd, "O led azul", 20, 20);
+            ssd1306_draw_string(&ssd, "foi desligado", 20, 29);
+            ssd1306_send_data(&ssd);
         }else{
             printf("O led azul foi ligado\n");
             blue_on = true;
             gpio_put(LED_B, blue_on);
+            ssd1306_fill(&ssd, false); // Limpa o display 
+            ssd1306_draw_string(&ssd, "O led azul", 20, 20);
+            ssd1306_draw_string(&ssd, "foi ligado", 20, 29);
+            ssd1306_send_data(&ssd);
         }
     }
 }
