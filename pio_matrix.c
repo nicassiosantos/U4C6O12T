@@ -33,7 +33,6 @@
 #define endereco 0x3C
 
 //Variavél global
-static volatile uint cont = 0;
 static volatile uint32_t last_time = 0;
 PIO pio = pio0; 
 uint volatile sm_global = 0;
@@ -44,6 +43,7 @@ ssd1306_t ssd; // Inicializa a estrutura do display
 
 // FUNÇÕES DOS NÚMEROS
 extern void numeros(PIO pio, uint sm, uint cont);
+extern void desligar_matriz(PIO pio, uint sm);
 
 //Definindo o escopo da função de interrupção
 static void gpio_irq_handler(uint gpio, uint32_t events);
@@ -69,16 +69,15 @@ void gpio_irq_handler(uint gpio, uint32_t events)
     if (gpio == button_A && (current_time - last_time > 200000)) {
         last_time = current_time;
         if(green_on){
-            printf("O led verde foi desligado\n");
+            printf("Após o pressionamento do botão A o led verde foi desligado!!\n");
             green_on = false;
             gpio_put(LED_G, green_on); 
             ssd1306_fill(&ssd, false); // Limpa o display 
             ssd1306_draw_string(&ssd, "O led verde", 20, 20);
             ssd1306_draw_string(&ssd, "foi desligado", 20, 29);
             ssd1306_send_data(&ssd);
-
         }else{
-            printf("O led verde foi ligado\n");
+            printf("Após o pressionamento do botão A o led verde foi ligado!!\n");
             green_on = true;
             gpio_put(LED_G, green_on);
             ssd1306_fill(&ssd, false); // Limpa o display 
@@ -87,24 +86,25 @@ void gpio_irq_handler(uint gpio, uint32_t events)
             ssd1306_send_data(&ssd);
         }
     }else if (gpio == button_B && (current_time - last_time > 200000)) {
-        printf("ENTROU\n");
         last_time = current_time;
         if(blue_on){
-            printf("O led azul foi desligado\n");
+            printf("Após o pressionamento do botão B, o led azul foi desligado!!\n");
             blue_on = false;
             gpio_put(LED_B, blue_on);
             ssd1306_fill(&ssd, false); // Limpa o display 
             ssd1306_draw_string(&ssd, "O led azul", 20, 20);
             ssd1306_draw_string(&ssd, "foi desligado", 20, 29);
             ssd1306_send_data(&ssd);
+            
         }else{
-            printf("O led azul foi ligado\n");
+            printf("Após o pressionamento do botão B, o led azul foi ligado!!\n");
             blue_on = true;
             gpio_put(LED_B, blue_on);
             ssd1306_fill(&ssd, false); // Limpa o display 
             ssd1306_draw_string(&ssd, "O led azul", 20, 20);
             ssd1306_draw_string(&ssd, "foi ligado", 20, 29);
             ssd1306_send_data(&ssd);
+            
         }
     }
 }
@@ -146,6 +146,10 @@ int main()
     ssd1306_send_data(&ssd);
 
     bool cor = true;
+
+    
+
+
     stdio_init_all();
 
 
@@ -161,15 +165,30 @@ int main()
 
     gpio_set_irq_enabled_with_callback(button_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
-    numeros(pio, sm, cont); //imprime o valor de cont na matriz de leds antes de entrar no while principal
+    desligar_matriz(pio, sm);
 
     while (true)
     {
-        // LED piscando 5 vezes por segundo
-        gpio_put(LED_R, 1); 
-        sleep_ms(100);            
-        gpio_put(LED_R, 0); 
-        sleep_ms(100);   
-                     
+        if (stdio_usb_connected())
+        {
+            char c;
+            if (scanf("%c", &c) == 1){
+                if(c >= '0' && c <= '9'){
+                    uint num = (uint)(c - '0');
+                    ssd1306_fill(&ssd, false);
+                    ssd1306_draw_char(&ssd, c, 20, 20); 
+                    ssd1306_send_data(&ssd);
+                    printf("Você enviou:%c\n", c);
+                    numeros(pio, sm, num);
+                }else{
+                    ssd1306_fill(&ssd, false);
+                    ssd1306_draw_char(&ssd, c, 20, 20); 
+                    ssd1306_send_data(&ssd);
+                    printf("Você enviou:%c\n", c);
+                }
+            }
+        
+        sleep_ms(10);   
+        }           
     }
 }

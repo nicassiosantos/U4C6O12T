@@ -21,14 +21,33 @@
 
 extern uint32_t matrix_rgb(double b, double r, double g);
 
-//Função para desenhar o número 0 na matriz
-void numero_0(PIO pio, uint sm){
+void desligar_matriz(PIO pio, uint sm){
     double frame[1][25] = {
         {0, 0, 0, 0, 0,
          0, 0,  0,  0, 0,
          0, 0,  0,  0, 0,
          0, 0,  0,  0, 0,
          0, 0, 0, 0, 0}
+    };
+
+    uint32_t valor_led;
+    
+    for (int16_t i = 0; i < NUM_PIXELS; i++)
+    {
+        valor_led = matrix_rgb(0.0, frame[0][24 - i], 0.0); // LEDs vermelhos para o número 0
+        pio_sm_put_blocking(pio, sm, valor_led);
+    }
+
+}
+
+//Função para desenhar o número 0 na matriz
+void numero_0(PIO pio, uint sm){
+    double frame[1][25] = {
+        {0, 0.7, 0.7, 0.7, 0,
+         0, 0.7,  0,  0.7, 0,
+         0, 0.7,  0,  0.7, 0,
+         0, 0.7,  0,  0.7, 0,
+         0, 0.7, 0.7, 0.7, 0}
     };
 
     uint32_t valor_led;
