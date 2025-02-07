@@ -169,7 +169,7 @@ void ssd1306_draw_char(ssd1306_t *ssd, char c, uint8_t x, uint8_t y)
     index = (c - 'a' + 37)*8; // Adiciona o deslocamento necessário
   }
   
-  for (uint8_t i = 0; i < 7; ++i)
+  for (uint8_t i = 0; i < 8; ++i)
   {
     uint8_t line = font[index + i];
     for (uint8_t j = 0; j < 8; ++j)
