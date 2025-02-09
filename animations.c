@@ -43,11 +43,11 @@ void desligar_matriz(PIO pio, uint sm){
 //Função para desenhar o número 0 na matriz
 void numero_0(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7, 0.7, 0.7, 0,
-         0, 0.7,  0,  0.7, 0,
-         0, 0.7,  0,  0.7, 0,
-         0, 0.7,  0,  0.7, 0,
-         0, 0.7, 0.7, 0.7, 0}
+        {0, 0.2, 0.2, 0.2, 0,
+         0, 0.2,  0,  0.2, 0,
+         0, 0.2,  0,  0.2, 0,
+         0, 0.2,  0,  0.2, 0,
+         0, 0.2, 0.2, 0.2, 0}
     };
 
     uint32_t valor_led;
@@ -63,11 +63,11 @@ void numero_0(PIO pio, uint sm){
 //Função para desenhar o número 1 na matriz
 void numero_1(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0  ,    0 ,  0.7, 0,
-         0, 0.7,   0.7,   0 , 0,
-         0, 0.7,    0 ,  0.7, 0,
-         0, 0.7,    0 ,   0 , 0,
-         0, 0  ,    0 ,  0.7, 0}
+        {0, 0  ,    0 ,  0.2, 0,
+         0, 0.2,   0.2,   0 , 0,
+         0, 0.2,    0 ,  0.2, 0,
+         0, 0.2,    0 ,   0 , 0,
+         0, 0  ,    0 ,  0.2, 0}
     };
 
     uint32_t valor_led;
@@ -83,11 +83,11 @@ void numero_1(PIO pio, uint sm){
 //Função para desenhar o número 2 na matriz
 void numero_2(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7,    0.7,  0.7, 0,
-         0, 0.7,    0  ,   0 , 0,
-         0, 0  ,    0.7,   0 , 0,
-         0, 0  ,    0  ,  0.7, 0,
-         0, 0.7,    0.7,  0.7, 0}
+        {0, 0.2,    0.2,  0.2, 0,
+         0, 0.2,    0  ,   0 , 0,
+         0, 0  ,    0.2,   0 , 0,
+         0, 0  ,    0  ,  0.2, 0,
+         0, 0.2,    0.2,  0.2, 0}
     };
 
     uint32_t valor_led;
@@ -103,11 +103,11 @@ void numero_2(PIO pio, uint sm){
 //Função para desenhar o número 3 na matriz
 void numero_3(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7,    0.7,  0.7, 0,
-         0, 0.7,    0  ,   0 , 0,
-         0, 0.7,    0.7,  0.7, 0,
-         0, 0.7,      0,    0, 0,
-         0, 0.7,    0.7,  0.7, 0}
+        {0, 0.2,    0.2,  0.2, 0,
+         0, 0.2,    0  ,   0 , 0,
+         0, 0.2,    0.2,  0.2, 0,
+         0, 0.2,      0,    0, 0,
+         0, 0.2,    0.2,  0.2, 0}
     };
 
     uint32_t valor_led;
@@ -123,11 +123,11 @@ void numero_3(PIO pio, uint sm){
 //Função para desenhar o número 4 na matriz
 void numero_4(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7,    0,  0.7, 0,
-         0, 0.7,    0,  0.7, 0,
-         0, 0.7,    0.7,  0.7, 0,
-         0, 0.7,      0,    0, 0,
-         0, 0  ,    0,  0.7, 0}
+        {0, 0.2,    0,  0.2, 0,
+         0, 0.2,    0,  0.2, 0,
+         0, 0.2,    0.2,  0.2, 0,
+         0, 0.2,      0,    0, 0,
+         0, 0  ,    0,  0.2, 0}
     };
 
     uint32_t valor_led;
@@ -143,11 +143,11 @@ void numero_4(PIO pio, uint sm){
 //Função para desenhar o número 5 na matriz
 void numero_5(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7,    0.7,  0.7, 0,
-         0, 0,    0,  0.7,   0,
-         0, 0.7,    0.7,  0.7, 0,
-         0, 0.7,      0,    0, 0,
-         0, 0.7 ,    0.7,  0.7, 0}
+        {0, 0.2,    0.2,  0.2, 0,
+         0, 0,    0,  0.2,   0,
+         0, 0.2,    0.2,  0.2, 0,
+         0, 0.2,      0,    0, 0,
+         0, 0.2 ,    0.2,  0.2, 0}
     };
 
     uint32_t valor_led;
@@ -163,11 +163,11 @@ void numero_5(PIO pio, uint sm){
 //Função para desenhar o número 6 na matriz
 void numero_6(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7,    0.7,  0.7, 0,
-         0, 0,    0,  0.7,   0,
-         0, 0.7,    0.7,  0.7, 0,
-         0, 0.7,      0,    0.7, 0,
-         0, 0.7 ,    0.7,  0.7, 0}
+        {0, 0.2,    0.2,  0.2, 0,
+         0, 0,    0,  0.2,   0,
+         0, 0.2,    0.2,  0.2, 0,
+         0, 0.2,      0,    0.2, 0,
+         0, 0.2 ,    0.2,  0.2, 0}
     };
 
     uint32_t valor_led;
@@ -183,11 +183,11 @@ void numero_6(PIO pio, uint sm){
 //Função para desenhar o número 7 na matriz
 void numero_7(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7 ,    0.7 ,  0.7, 0,
-         0, 0.7,   0,   0 , 0,
-         0, 0,    0 ,  0.7, 0,
-         0, 0.7,    0 ,   0 , 0,
-         0, 0  ,    0 ,  0.7, 0}
+        {0, 0.2 ,    0.2 ,  0.2, 0,
+         0, 0.2,   0,   0 , 0,
+         0, 0,    0 ,  0.2, 0,
+         0, 0.2,    0 ,   0 , 0,
+         0, 0  ,    0 ,  0.2, 0}
     };
 
     uint32_t valor_led;
@@ -203,11 +203,11 @@ void numero_7(PIO pio, uint sm){
 //Função para desenhar o número 8 na matriz
 void numero_8(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7, 0.7, 0.7, 0,
-         0, 0.7,  0,  0.7, 0,
-         0, 0.7,  0.7,  0.7, 0,
-         0, 0.7,  0,  0.7, 0,
-         0, 0.7, 0.7, 0.7, 0}
+        {0, 0.2, 0.2, 0.2, 0,
+         0, 0.2,  0,  0.2, 0,
+         0, 0.2,  0.2,  0.2, 0,
+         0, 0.2,  0,  0.2, 0,
+         0, 0.2, 0.2, 0.2, 0}
     };
 
     uint32_t valor_led;
@@ -223,11 +223,11 @@ void numero_8(PIO pio, uint sm){
 //Função para desenhar o número 9 na matriz
 void numero_9(PIO pio, uint sm){
     double frame[1][25] = {
-        {0, 0.7, 0.7, 0.7, 0,
-         0, 0.7,  0,  0.7, 0,
-         0, 0.7,  0.7,  0.7, 0,
-         0, 0.7,  0,  0, 0,
-         0, 0.7, 0.7, 0.7, 0}
+        {0, 0.2, 0.2, 0.2, 0,
+         0, 0.2,  0,  0.2, 0,
+         0, 0.2,  0.2,  0.2, 0,
+         0, 0.2,  0,  0, 0,
+         0, 0.2, 0.2, 0.2, 0}
     };
 
     uint32_t valor_led;
