@@ -77,13 +77,6 @@ void ssd1306_pixel(ssd1306_t *ssd, uint8_t x, uint8_t y, bool value) {
     ssd->ram_buffer[index] &= ~(1 << pixel);
 }
 
-/*
-void ssd1306_fill(ssd1306_t *ssd, bool value) {
-  uint8_t byte = value ? 0xFF : 0x00;
-  for (uint8_t i = 1; i < ssd->bufsize; ++i)
-    ssd->ram_buffer[i] = byte;
-}*/
-
 void ssd1306_fill(ssd1306_t *ssd, bool value) {
     // Itera por todas as posições do display
     for (uint8_t y = 0; y < ssd->height; ++y) {
@@ -92,8 +85,6 @@ void ssd1306_fill(ssd1306_t *ssd, bool value) {
         }
     }
 }
-
-
 
 void ssd1306_rect(ssd1306_t *ssd, uint8_t top, uint8_t left, uint8_t width, uint8_t height, bool value, bool fill) {
   for (uint8_t x = left; x < left + width; ++x) {
@@ -141,7 +132,6 @@ void ssd1306_line(ssd1306_t *ssd, uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1
         }
     }
 }
-
 
 void ssd1306_hline(ssd1306_t *ssd, uint8_t x0, uint8_t x1, uint8_t y, bool value) {
   for (uint8_t x = x0; x <= x1; ++x)
