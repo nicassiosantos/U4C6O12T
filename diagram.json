@@ -178,7 +178,7 @@
     [ "rgb14:VDD", "vcc3:VCC", "green", [ "h-9.6", "v-19.2" ] ],
     [ "rgb15:VDD", "vcc3:VCC", "green", [ "h-19.2", "v-19.2" ] ],
     [ "rgb16:VSS", "gnd4:GND", "green", [ "v37.5", "h-0.8" ] ],
-    [ "rgb17:VSS", "gnd4:GND", "green", [ "v37.5", "h-10.4" ] ],
+    [ "rgb17:VSS", "gnd4:GND", "green", [ "v37.5", "h-10.2" ] ],
     [ "rgb18:VSS", "gnd4:GND", "green", [ "v0" ] ],
     [ "rgb19:VSS", "gnd4:GND", "green", [ "v0" ] ],
     [ "rgb20:VSS", "gnd4:GND", "green", [ "v0" ] ],
