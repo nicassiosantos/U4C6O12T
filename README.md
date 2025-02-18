@@ -7,10 +7,10 @@ O sistema é estruturado em diferentes arquivos auxiliares, responsáveis por an
 
 ## 🎯 Objetivos
 
-• Aplicar os conhecimentos adquiridos sobre UART e I2C na prática.
-• Manipular e controlar LEDs comuns e LEDs endereçáveis WS2812.
-• Fixar o estudo do uso botões de acionamento, interrupções e Debounce.
-• Desenvolver um projeto funcional que combine hardware e software
+- Aplicar os conhecimentos adquiridos sobre UART e I2C na prática.
+- Manipular e controlar LEDs comuns e LEDs endereçáveis WS2812.
+- Fixar o estudo do uso botões de acionamento, interrupções e Debounce.
+- Desenvolver um projeto funcional que combine hardware e software
 
 ## 📹 video do Projeto
 - **[Ver Video](https://drive.google.com/file/d/1-UUp2QFG4MBCVXd2P7ZYwXoJd2ywZ1m8/view?usp=sharing)**
