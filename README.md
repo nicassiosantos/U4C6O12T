@@ -13,7 +13,7 @@ O sistema é estruturado em diferentes arquivos auxiliares, responsáveis por an
 - Desenvolver um projeto funcional que combine hardware e software
 
 ## 📹 video do Projeto
-- **[Ver Video](https://drive.google.com/file/d/1-UUp2QFG4MBCVXd2P7ZYwXoJd2ywZ1m8/view?usp=sharing)**
+- **[Ver Video]([https://drive.google.com/file/d/1-UUp2QFG4MBCVXd2P7ZYwXoJd2ywZ1m8/view?usp=sharing](https://drive.google.com/file/d/182CmEhxDS29QFLWqnFVRjkNTUKU2cgfT/view?usp=sharing))**
   
 ## 📂 Estrutura dos Arquivos
 
